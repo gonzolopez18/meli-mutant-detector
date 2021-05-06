@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Converters;
 using System.Net.Http;
+using MediatR;
 
 namespace MutantDetector
 {
@@ -49,6 +50,7 @@ namespace MutantDetector
                 options.Filters.Add(new ConsumesAttribute("application/json"));
             });
 
+            services.AddMediatR(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
