@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Figgle;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +14,8 @@ namespace MutantDetector
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine(FiggleFonts.Standard.Render("Mutant Detector."));
+
             CreateHostBuilder(args).Build().Run();
         }
 

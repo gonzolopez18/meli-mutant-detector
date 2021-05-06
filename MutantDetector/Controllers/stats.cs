@@ -12,36 +12,17 @@ namespace MutantDetector.Controllers
     [ApiController]
     public class stats : ControllerBase
     {
-        // GET: api/<stats>
-        [HttpGet]
+        /// <summary>
+        /// Devuelve un Json con las estadísticas de las
+        ///verificaciones de ADN: {“count_mutant_dna”:40, “count_human_dna”:100: “ratio”:0.4}
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new List<string>() { "value1", "value2" };
         }
 
-        // GET api/<stats>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<stats>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<stats>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<stats>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+    
     }
 }
