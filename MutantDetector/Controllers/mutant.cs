@@ -12,36 +12,17 @@ namespace MutantDetector.Controllers
     [ApiController]
     public class mutant : ControllerBase
     {
-        // GET: api/<mutant>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<mutant>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<mutant>
+        
+        /// <summary>
+        /// Detecta si la matriz de ADN recibida pertenece a un mutante o no. Si se encuentra 
+        /// más de una secuencia de cuatro letras iguales, es un mutante.
+        /// </summary>
+        /// <param name="value">Array de strings que representa una matriz de NxN elementos.
+        /// Los únicos caracteres permitidos son A, T, C, y G.</param>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<mutant>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<mutant>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
