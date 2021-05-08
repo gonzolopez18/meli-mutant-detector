@@ -4,10 +4,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MutantDetector.Api", "MutantDetector.Api\MutantDetector.Api.csproj", "{A97A1B23-96F0-47EB-BF4E-E91CF506EDA1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D3678A24-41C8-407C-A179-3964A489C4C2} = {D3678A24-41C8-407C-A179-3964A489C4C2}
+		{D930766E-0CDE-4F78-886B-74D2D3706D57} = {D930766E-0CDE-4F78-886B-74D2D3706D57}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MutantDetector.Domain", "MutantDetector.Domain\MutantDetector.Domain.csproj", "{D930766E-0CDE-4F78-886B-74D2D3706D57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MutantDetector.Domain", "MutantDetector.Domain\MutantDetector.Domain.csproj", "{D930766E-0CDE-4F78-886B-74D2D3706D57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MutantDetector.Infraestructure", "MutantDetector.Infraestructure\MutantDetector.Infraestructure.csproj", "{D3678A24-41C8-407C-A179-3964A489C4C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MutantDetector.Infraestructure", "MutantDetector.Infraestructure\MutantDetector.Infraestructure.csproj", "{D3678A24-41C8-407C-A179-3964A489C4C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8306C185-D1EE-4623-BF1E-AA9ED211BCBA}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

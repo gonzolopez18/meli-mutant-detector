@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MutantDetector.Api</name>
+    </assembly>
+    <members>
+        <member name="M:MutantDetector.Controllers.mutantController.Post(MutantDetector.Api.Application.Commands.CheckMutantCommand)">
+            <summary>
+            Detecta si la matriz de ADN recibida pertenece a un mutante o no. Si se encuentra 
+            más de una secuencia de cuatro letras iguales, es un mutante.
+            </summary>
+            <param name="value">Array de strings que representa una matriz de NxN elementos.
+            Los únicos caracteres permitidos son A, T, C, y G.</param>
+        </member>
+        <member name="M:MutantDetector.Controllers.statsController.GetStats">
+             <summary>
+             Devuelve un Json con las estadísticas de las
+            verificaciones de ADN: {“count_mutant_dna”:40, “count_human_dna”:100: “ratio”:0.4}
+             </summary>
+             <returns></returns>
+        </member>
+    </members>
+</doc>
