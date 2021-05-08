@@ -20,6 +20,7 @@ using System.IO;
 using MutantDetector.Domain.AggregatesModel;
 using MutantDetector.Infraestructure.Services;
 using MutantDetector.Infraestructure.Repository;
+using MutantDetector.Domain.AggregatesModel.Stats;
 
 namespace MutantDetector
 {
@@ -61,7 +62,10 @@ namespace MutantDetector
 
             services
                  .AddScoped<IDnaProcessor, DnaProcessor>()
-                 .AddScoped<IDnaRepository, DnaRepository>();
+                 .AddScoped<IStatsRepository, StatsRepository>();
+
+            services
+                 .AddSingleton<IDnaRepository, DnaInMemoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
