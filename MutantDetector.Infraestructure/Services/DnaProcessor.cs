@@ -33,7 +33,7 @@ namespace MutantDetector.Infraestructure.Services
             if (matchesQty > condition.MaxSecuenceQty)
                 return true;
 
-            GetMatchesDiagonally();
+            ProcessDiagonally();
             if ( matchesQty > condition.MaxSecuenceQty)
                 return true;
 
@@ -65,24 +65,69 @@ namespace MutantDetector.Infraestructure.Services
             return column;
         }
 
-        private void GetMatchesDiagonally()
+        private void ProcessDiagonally()
         {
-            for (int i = 0; i < matrixSize; i++)
+            //process from top/left to right/down
+            ProcessDiagonals(0, matrixSize - 3, 0, matrixSize -3);
+            if (matchesQty > condition.MaxSecuenceQty)
+                return;
+
+            //process from bottom
+            ProcessDiagonals(0, matrixSize - 3, 3, matrixSize);
+            if (matchesQty > condition.MaxSecuenceQty)
+                return;
+
+        }
+
+        /// <summary>
+        /// Iterates over diagonals. When increments = 1, iterates from top/left to bottom/right.
+        /// When increment = -1, iterates from bottom/left to top/right. Avoid three last columns/ rows.
+        /// </summary>
+        private void ProcessDiagonals(int firstRow, int lastRow, int firstColumn, int lastColumn)
+        {
+            bool left2Right = firstColumn == 0;
+
+            //iterates over first row
+            for (int i = firstColumn; i < lastColumn; i++)
             {
-                ProcessLine(getDiagonal(i, 0));
+                ProcessLine(getDiagonal(i, firstRow, left2Right ));
             }
-            for (int i = 0; i < matrixSize; i++)
+
+            //iterates over first column, begining from de second row (first was processed in last step)
+            for (int i = firstRow + 1; i < lastRow; i++)
             {
-                ProcessLine(getDiagonal(0, i));
+                if (left2Right)
+                {
+                    ProcessLine(getDiagonal(firstColumn, i, left2Right));
+                    if (matchesQty > condition.MaxSecuenceQty)
+                        return;
+                }
+                else
+                {
+                    ProcessLine(getDiagonal(lastColumn -1, i, left2Right));
+                    if (matchesQty > condition.MaxSecuenceQty)
+                        return;
+                }
+                
             }
         }
-        private string getDiagonal(int colnumber, int rownumber)
+        private string getDiagonal(int colnumber, int rownumber, bool Left2Right)
         {
             string column = "";
-            for (int i = 0; i < matrixSize; i++)
+            int increment = Left2Right ? 1 : -1;
+
+
+            do
             {
-                column += dna[i].ToCharArray()[colnumber];
-            }
+                do
+                {
+                    column += dna[rownumber].ToCharArray()[colnumber];
+                    colnumber = colnumber + increment;
+                    rownumber++;
+                } while (colnumber < matrixSize && rownumber < matrixSize && colnumber >= 0);
+
+            } while (rownumber < matrixSize && colnumber < matrixSize && colnumber >= 0);
+
             return column;
         }
         private void ProcessLine(string line)
