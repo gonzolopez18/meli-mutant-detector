@@ -25,7 +25,7 @@ using MutantDetector.Domain.AggregatesModel.Stats;
 namespace MutantDetector
 {
     public class Startup
-    {
+    { 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
