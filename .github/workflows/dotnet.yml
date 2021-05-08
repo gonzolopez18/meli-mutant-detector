@@ -22,4 +22,6 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run:  |
+          cd ./Tests/MutantDetector.Api.Test/
+          dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
