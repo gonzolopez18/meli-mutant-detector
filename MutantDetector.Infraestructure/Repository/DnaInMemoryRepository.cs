@@ -17,10 +17,10 @@ namespace MutantDetector.Infraestructure.Repository
         }
         public List<Dna> Dnas { get { return dnaList; } }
 
-        public async Task<Dna> AddAsync(Dna dna)
+        public async Task<bool> AddAsync(Dna dna)
         {
             Dnas.Add(dna);
-            return dna;
+            return true;
         }
 
         public async Task<IQueryable<Dna>> GetAllAsync()

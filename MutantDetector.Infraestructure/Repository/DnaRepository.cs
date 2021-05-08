@@ -10,7 +10,7 @@ namespace MutantDetector.Infraestructure.Repository
 {
     public class DnaRepository : IDnaRepository
     {
-        public Task<Dna> AddAsync(Dna dna)
+        public Task<bool> AddAsync(Dna dna)
         {
             throw new NotImplementedException();
         }

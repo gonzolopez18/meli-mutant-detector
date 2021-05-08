@@ -9,7 +9,7 @@ namespace MutantDetector.Domain.AggregatesModel
 {
     public interface IDnaRepository
     {
-        Task<Dna> AddAsync(Dna dna);
+        Task<bool> AddAsync(Dna dna);
 
         Task<IQueryable<Dna>> GetAllAsync();
 

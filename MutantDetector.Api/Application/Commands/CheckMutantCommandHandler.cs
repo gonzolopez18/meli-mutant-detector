@@ -22,7 +22,7 @@ namespace MutantDetector.Api.Application.Commands
         {
             bool isMutant = _dnaProcessor.isMutant(request.dna);
 
-            await _dnaRepository.AddAsync(new Dna() { DnaSecuence = request.dna.ToString(), IsMutant = isMutant });
+            bool result = await _dnaRepository.AddAsync(new Dna() { DnaSecuence = request.dna.ToString(), IsMutant = isMutant });
 
             return isMutant;
         }
