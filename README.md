@@ -1,6 +1,4 @@
 # meli-mutant-detector
 
 
-#
-
 
