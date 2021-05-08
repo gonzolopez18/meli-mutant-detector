@@ -37,7 +37,7 @@ namespace MutantDetector.Controllers
 
                 if (!result)
                     return StatusCode(403);
-                return StatusCode(201);
+                return StatusCode(200);
             }
             catch (Exception e)
             {

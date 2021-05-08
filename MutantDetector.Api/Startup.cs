@@ -15,6 +15,11 @@ using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Converters;
 using System.Net.Http;
 using MediatR;
+using System.Reflection;
+using System.IO;
+using MutantDetector.Domain.AggregatesModel;
+using MutantDetector.Infraestructure.Services;
+using MutantDetector.Infraestructure.Repository;
 
 namespace MutantDetector
 {
@@ -41,7 +46,9 @@ namespace MutantDetector
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mutant Detector", Version = "v1" });
-
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
 
             services.AddMvc(options =>
@@ -51,6 +58,10 @@ namespace MutantDetector
             });
 
             services.AddMediatR(typeof(Startup));
+
+            services
+                 .AddScoped<IDnaProcessor, DnaProcessor>()
+                 .AddScoped<IDnaRepository, DnaRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
