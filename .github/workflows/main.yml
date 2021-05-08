@@ -34,5 +34,5 @@ jobs:
       - name: Publish coverage report to coveralls.io
         uses: coverallsapp/github-action@v1.0.1
         with:
-          github-token: ${{ secrets.COVERALLAS_TOKEN }}
+          github-token: ${{ secrets.REPO_TOKEN }}
           path-to-lcov: ./Tests/MutantDetector.Api.Test/TestResults/coverage.info  
