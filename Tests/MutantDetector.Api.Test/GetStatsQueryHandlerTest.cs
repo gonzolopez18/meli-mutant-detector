@@ -23,7 +23,7 @@ namespace MutantDetector.Api.Test
             GetStatsQuery StatsQuery = GetQuery();
             Stats statMocked = new Stats(5, 10);
             StatsView view = new StatsView(5, 10, (decimal)0.5);
-            _repository.Setup(x => x.GetStats()).ReturnsAsync(statMocked).Verifiable();
+            _repository.Setup(x => x.GetStatsAsync()).ReturnsAsync(statMocked).Verifiable();
 
             var result = await _sut.Handle(StatsQuery, new System.Threading.CancellationToken());
 

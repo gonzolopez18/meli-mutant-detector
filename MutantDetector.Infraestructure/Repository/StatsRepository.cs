@@ -10,22 +10,23 @@ using System.Threading.Tasks;
 namespace MutantDetector.Infraestructure.Repository
 {
     public class StatsRepository : IStatsRepository
-    { 
-        private readonly IDnaRepository _repository;
+    {
+        private int mutantsQty;
+        private int humansQty;
 
-        public StatsRepository(IDnaRepository repository)
-        {
-            _repository = repository;
-        }
-        public async Task<Stats> GetStats()
-        {
-            int mutants =  _repository.GetAllAsync().GetAwaiter().GetResult()
-                    .Where(x => x.IsMutant ).Count();
-            int humans = _repository.GetAllAsync().GetAwaiter().GetResult()
-                    .Where(x => x.IsMutant == false).Count();
 
-            return new Stats(mutants, humans);
+        public async Task AddStatAsync(bool isMutant)
+        {
+            if (isMutant)
+                ++mutantsQty;
+            ++humansQty;
+
         }
 
+        public async Task<Stats> GetStatsAsync()
+        {
+            return new Stats(mutantsQty, humansQty);
+        }
+    
     }
 }
