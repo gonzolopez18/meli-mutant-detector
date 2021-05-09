@@ -61,11 +61,11 @@ namespace MutantDetector
             services.AddMediatR(typeof(Startup));
 
             services
-                 .AddScoped<IDnaProcessor, DnaProcessor>()
-                 .AddScoped<IStatsRepository, StatsRepository>();
+                 .AddScoped<IDnaProcessor, DnaProcessor>();
 
             services
-                 .AddSingleton<IDnaRepository, DnaInMemoryRepository>();
+                 .AddSingleton<IDnaRepository, DnaInMemoryRepository>()
+                 .AddSingleton<IStatsRepository, StatsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

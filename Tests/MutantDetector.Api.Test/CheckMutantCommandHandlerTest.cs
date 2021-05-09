@@ -5,6 +5,10 @@ using Xunit;
 using Moq;
 using MutantDetector.Api.Application.Model;
 using System.Collections.Generic;
+using MediatR;
+using MutantDetector.Domain.DomainEvents;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace MutantDetector.Api.Test
 {
@@ -13,11 +17,13 @@ namespace MutantDetector.Api.Test
         private readonly CheckMutantCommandHandler _sut;
         private readonly Mock<IDnaRepository> _repository = new Mock<IDnaRepository>();
         private readonly Mock<IDnaProcessor> _processor = new Mock<IDnaProcessor>();
+        private readonly Mock<IMediator> _mediator = new Mock<IMediator>();
 
         public CheckMutantCommandHandlerTest()
         {
             _sut = new CheckMutantCommandHandler(_repository.Object,
-                _processor.Object);
+                _processor.Object, 
+                _mediator.Object);
         }
 
         [Fact]
@@ -46,6 +52,9 @@ namespace MutantDetector.Api.Test
             bool IsMutant = true;
 
             _processor.Setup(x => x.isMutant(checkCommand.dna)).Returns(IsMutant);
+            _mediator
+                .Setup(m => m.Send(It.IsAny<DnaProcessedEvent>(), It.IsAny<CancellationToken>()))
+                    .Verifiable("Notification was not sent.");
 
             Dna dna = new Dna() { DnaSecuence = checkCommand.dna.ToString(), IsMutant = IsMutant };
 

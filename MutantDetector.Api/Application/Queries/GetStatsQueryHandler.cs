@@ -21,7 +21,7 @@ namespace MutantDetector.Api.Application.Queries
         public async Task<StatsView> Handle(GetStatsQuery request, CancellationToken cancellationToken)
         {
 
-            Stats stats = await _statsRepository.GetStats();
+            Stats stats = await _statsRepository.GetStatsAsync();
 
             return new StatsView(stats.count_mutant_dna, stats.count_human_dna, stats.ratio);
         }
