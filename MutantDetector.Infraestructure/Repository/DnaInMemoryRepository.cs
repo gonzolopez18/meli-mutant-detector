@@ -23,10 +23,10 @@ namespace MutantDetector.Infraestructure.Repository
             return true;
         }
 
-        public async Task<IQueryable<Dna>> GetAllAsync()
-        {
-            return Dnas.AsQueryable();
-        }
+        //public async Task<IQueryable<Dna>> GetAllAsync()
+        //{
+        //    return Dnas.AsQueryable();
+        //}
 
     }
 }
