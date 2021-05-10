@@ -1,0 +1,801 @@
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Api\Program.cs
+FN:15,System.Void MutantDetector.Program::Main(System.String[])
+FNDA:0,System.Void MutantDetector.Program::Main(System.String[])
+DA:16,0
+DA:17,0
+DA:19,0
+DA:20,0
+FN:22,Microsoft.Extensions.Hosting.IHostBuilder MutantDetector.Program::CreateHostBuilder(System.String[])
+FNDA:0,Microsoft.Extensions.Hosting.IHostBuilder MutantDetector.Program::CreateHostBuilder(System.String[])
+DA:23,0
+DA:24,0
+DA:25,0
+DA:26,0
+DA:27,0
+LF:9
+LH:0
+BRF:0
+BRH:0
+FNF:2
+FNH:0
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Api\Startup.cs
+FN:46,Microsoft.Extensions.Configuration.IConfiguration MutantDetector.Startup::get_Configuration()
+FNDA:0,Microsoft.Extensions.Configuration.IConfiguration MutantDetector.Startup::get_Configuration()
+DA:47,0
+FN:50,System.Void MutantDetector.Startup::ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+FNDA:0,System.Void MutantDetector.Startup::ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+DA:51,0
+DA:52,0
+DA:53,0
+DA:54,0
+DA:55,0
+DA:56,0
+DA:57,0
+DA:58,0
+DA:60,0
+DA:61,0
+DA:62,0
+DA:63,0
+DA:64,0
+DA:65,0
+DA:66,0
+DA:68,0
+DA:69,0
+DA:70,0
+DA:71,0
+DA:72,0
+DA:74,0
+DA:76,0
+DA:77,0
+DA:80,0
+DA:81,0
+DA:83,0
+DA:84,0
+DA:86,0
+DA:87,0
+DA:88,0
+DA:89,0
+DA:90,0
+DA:91,0
+DA:92,0
+DA:93,0
+DA:94,0
+DA:95,0
+DA:96,0
+DA:97,0
+DA:98,0
+DA:99,0
+DA:100,0
+DA:101,0
+DA:102,0
+DA:104,0
+DA:106,0
+FN:109,System.Void MutantDetector.Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)
+FNDA:0,System.Void MutantDetector.Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)
+DA:110,0
+DA:111,0
+DA:112,0
+DA:113,0
+DA:114,0
+DA:116,0
+DA:118,0
+DA:120,0
+DA:122,0
+DA:123,0
+DA:124,0
+DA:125,0
+DA:127,0
+DA:128,0
+DA:129,0
+DA:130,0
+DA:131,0
+DA:132,0
+DA:133,0
+DA:134,0
+DA:135,0
+DA:138,0
+BRDA:111,9,0,0
+BRDA:111,9,1,0
+FN:140,System.Void MutantDetector.Startup::ConfigFluentValidation(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+FNDA:0,System.Void MutantDetector.Startup::ConfigFluentValidation(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+DA:141,0
+DA:143,0
+DA:145,0
+DA:146,0
+FN:40,System.Void MutantDetector.Startup::.ctor(Microsoft.Extensions.Configuration.IConfiguration)
+FNDA:0,System.Void MutantDetector.Startup::.ctor(Microsoft.Extensions.Configuration.IConfiguration)
+DA:41,0
+DA:42,0
+DA:43,0
+DA:45,0
+FN:32,System.Void MutantDetector.Startup::.cctor()
+FNDA:0,System.Void MutantDetector.Startup::.cctor()
+DA:33,0
+DA:35,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:40,0
+LF:83
+LH:0
+BRF:2
+BRH:0
+FNF:6
+FNH:0
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Api\Controllers\mutantController.cs
+FN:19,System.Void MutantDetector.Controllers.mutantController::.ctor(MediatR.IMediator)
+FNDA:3,System.Void MutantDetector.Controllers.mutantController::.ctor(MediatR.IMediator)
+DA:20,3
+DA:21,3
+DA:22,3
+DA:23,3
+FN:32,System.Void MutantDetector.Controllers.mutantController/<Post>d__2::MoveNext()
+FNDA:3,System.Void MutantDetector.Controllers.mutantController/<Post>d__2::MoveNext()
+DA:33,3
+DA:35,3
+DA:36,3
+DA:38,2
+DA:39,1
+DA:40,1
+DA:42,1
+DA:43,1
+DA:44,1
+DA:46,3
+BRDA:38,176,0,1
+BRDA:38,176,1,1
+LF:14
+LH:14
+BRF:2
+BRH:2
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Api\Controllers\statsController.cs
+FN:19,System.Void MutantDetector.Controllers.statsController::.ctor(MediatR.IMediator)
+FNDA:2,System.Void MutantDetector.Controllers.statsController::.ctor(MediatR.IMediator)
+DA:20,2
+DA:21,2
+DA:22,2
+DA:23,2
+FN:31,System.Void MutantDetector.Controllers.statsController/<GetStats>d__2::MoveNext()
+FNDA:2,System.Void MutantDetector.Controllers.statsController/<GetStats>d__2::MoveNext()
+DA:32,2
+DA:34,2
+DA:35,2
+DA:37,1
+DA:40,1
+DA:41,1
+DA:42,1
+DA:44,2
+LF:12
+LH:12
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Api\Application\Queries\GetStatsQuery.cs
+FN:11,System.Void MutantDetector.Api.Application.Queries.GetStatsQuery::.ctor()
+FNDA:5,System.Void MutantDetector.Api.Application.Queries.GetStatsQuery::.ctor()
+DA:12,5
+DA:13,5
+DA:14,5
+LF:3
+LH:3
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Api\Application\Queries\GetStatsQueryHandler.cs
+FN:15,System.Void MutantDetector.Api.Application.Queries.GetStatsQueryHandler::.ctor(MutantDetector.Domain.AggregatesModel.Stats.IStatsRepository)
+FNDA:1,System.Void MutantDetector.Api.Application.Queries.GetStatsQueryHandler::.ctor(MutantDetector.Domain.AggregatesModel.Stats.IStatsRepository)
+DA:16,1
+DA:17,1
+DA:18,1
+DA:19,1
+FN:21,System.Void MutantDetector.Api.Application.Queries.GetStatsQueryHandler/<Handle>d__2::MoveNext()
+FNDA:1,System.Void MutantDetector.Api.Application.Queries.GetStatsQueryHandler/<Handle>d__2::MoveNext()
+DA:22,1
+DA:24,1
+DA:26,1
+DA:27,1
+LF:8
+LH:8
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Api\Application\Model\StatsView.cs
+FN:16,System.Int32 MutantDetector.Api.Application.Model.StatsView::get_count_mutant_dna()
+FNDA:0,System.Int32 MutantDetector.Api.Application.Model.StatsView::get_count_mutant_dna()
+DA:17,0
+FN:17,System.Int32 MutantDetector.Api.Application.Model.StatsView::get_count_human_dna()
+FNDA:0,System.Int32 MutantDetector.Api.Application.Model.StatsView::get_count_human_dna()
+DA:18,0
+FN:18,System.Decimal MutantDetector.Api.Application.Model.StatsView::get_ratio()
+FNDA:1,System.Decimal MutantDetector.Api.Application.Model.StatsView::get_ratio()
+DA:19,1
+FN:9,System.Void MutantDetector.Api.Application.Model.StatsView::.ctor(System.Int32,System.Int32,System.Decimal)
+FNDA:4,System.Void MutantDetector.Api.Application.Model.StatsView::.ctor(System.Int32,System.Int32,System.Decimal)
+DA:10,4
+DA:11,4
+DA:12,4
+DA:13,4
+DA:14,4
+DA:15,4
+LF:9
+LH:7
+BRF:0
+BRH:0
+FNF:4
+FNH:2
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Api\Application\DomainEventHandlers\DnaProcessedEventHandler.cs
+FN:15,System.Void MutantDetector.Api.Application.DomainEventHandlers.DnaProcessedEventHandler::.ctor(MutantDetector.Domain.AggregatesModel.Stats.IStatsRepository)
+FNDA:1,System.Void MutantDetector.Api.Application.DomainEventHandlers.DnaProcessedEventHandler::.ctor(MutantDetector.Domain.AggregatesModel.Stats.IStatsRepository)
+DA:16,1
+DA:17,1
+DA:18,1
+DA:19,1
+FN:21,System.Void MutantDetector.Api.Application.DomainEventHandlers.DnaProcessedEventHandler/<Handle>d__2::MoveNext()
+FNDA:1,System.Void MutantDetector.Api.Application.DomainEventHandlers.DnaProcessedEventHandler/<Handle>d__2::MoveNext()
+DA:22,1
+DA:23,1
+DA:24,1
+LF:7
+LH:7
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Api\Application\Commands\CheckMutantCommand.cs
+FN:11,System.Collections.Generic.IEnumerable`1<System.String> MutantDetector.Api.Application.Commands.CheckMutantCommand::get_dna()
+FNDA:24,System.Collections.Generic.IEnumerable`1<System.String> MutantDetector.Api.Application.Commands.CheckMutantCommand::get_dna()
+DA:12,24
+FN:17,System.Void MutantDetector.Api.Application.Commands.CheckMutantCommandValidator::.ctor()
+FNDA:3,System.Void MutantDetector.Api.Application.Commands.CheckMutantCommandValidator::.ctor()
+DA:18,3
+DA:21,3
+DA:22,3
+DA:23,3
+DA:24,3
+DA:25,10
+DA:26,40
+DA:27,3
+DA:29,3
+DA:30,3
+DA:31,11
+DA:32,3
+DA:33,3
+LF:14
+LH:14
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Api\Application\Commands\CheckMutantCommandHandler.cs
+FN:17,System.Void MutantDetector.Api.Application.Commands.CheckMutantCommandHandler::.ctor(MutantDetector.Domain.AggregatesModel.IDnaRepository,MutantDetector.Domain.AggregatesModel.IDnaProcessor,MediatR.IMediator)
+FNDA:2,System.Void MutantDetector.Api.Application.Commands.CheckMutantCommandHandler::.ctor(MutantDetector.Domain.AggregatesModel.IDnaRepository,MutantDetector.Domain.AggregatesModel.IDnaProcessor,MediatR.IMediator)
+DA:18,2
+DA:19,2
+DA:20,2
+DA:21,2
+DA:22,2
+DA:23,2
+FN:24,System.Void MutantDetector.Api.Application.Commands.CheckMutantCommandHandler/<Handle>d__4::MoveNext()
+FNDA:2,System.Void MutantDetector.Api.Application.Commands.CheckMutantCommandHandler/<Handle>d__4::MoveNext()
+DA:25,2
+DA:26,2
+DA:28,2
+DA:30,2
+DA:31,2
+DA:33,2
+DA:34,2
+BRDA:30,246,0,2
+BRDA:30,246,1,2
+LF:13
+LH:13
+BRF:2
+BRH:2
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Domain\DomainEvents\DnaProcessedEvent.cs
+FN:9,System.Boolean MutantDetector.Domain.DomainEvents.DnaProcessedEvent::get_IsMutant()
+FNDA:4,System.Boolean MutantDetector.Domain.DomainEvents.DnaProcessedEvent::get_IsMutant()
+DA:10,4
+FN:11,System.Void MutantDetector.Domain.DomainEvents.DnaProcessedEvent::.ctor(System.Boolean)
+FNDA:3,System.Void MutantDetector.Domain.DomainEvents.DnaProcessedEvent::.ctor(System.Boolean)
+DA:12,3
+DA:13,3
+DA:14,3
+DA:15,3
+LF:5
+LH:5
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Domain\AggregatesModel\Dna\Dna.cs
+FN:8,System.String MutantDetector.Domain.AggregatesModel.Dna::get_DnaSecuence()
+FNDA:4,System.String MutantDetector.Domain.AggregatesModel.Dna::get_DnaSecuence()
+DA:9,4
+FN:10,System.Boolean MutantDetector.Domain.AggregatesModel.Dna::get_IsMutant()
+FNDA:4,System.Boolean MutantDetector.Domain.AggregatesModel.Dna::get_IsMutant()
+DA:11,4
+LF:2
+LH:2
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Domain\AggregatesModel\Mutant\MutantCondition.cs
+FN:8,System.Int32 MutantDetector.Domain.AggregatesModel.MutantCondition::get_MaxSecuenceQty()
+FNDA:0,System.Int32 MutantDetector.Domain.AggregatesModel.MutantCondition::get_MaxSecuenceQty()
+DA:9,0
+FN:10,System.Collections.Generic.IEnumerable`1<System.String> MutantDetector.Domain.AggregatesModel.MutantCondition::get_DnaBases()
+FNDA:0,System.Collections.Generic.IEnumerable`1<System.String> MutantDetector.Domain.AggregatesModel.MutantCondition::get_DnaBases()
+DA:11,0
+LF:2
+LH:0
+BRF:0
+BRH:0
+FNF:2
+FNH:0
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Domain\AggregatesModel\Stats\Stats.cs
+FN:15,System.Int32 MutantDetector.Domain.AggregatesModel.Stats.Stats::get_count_mutant_dna()
+FNDA:1,System.Int32 MutantDetector.Domain.AggregatesModel.Stats.Stats::get_count_mutant_dna()
+DA:16,1
+FN:16,System.Int32 MutantDetector.Domain.AggregatesModel.Stats.Stats::get_count_human_dna()
+FNDA:1,System.Int32 MutantDetector.Domain.AggregatesModel.Stats.Stats::get_count_human_dna()
+DA:17,1
+FN:17,System.Decimal MutantDetector.Domain.AggregatesModel.Stats.Stats::get_ratio()
+FNDA:2,System.Decimal MutantDetector.Domain.AggregatesModel.Stats.Stats::get_ratio()
+DA:18,2
+FN:8,System.Void MutantDetector.Domain.AggregatesModel.Stats.Stats::.ctor(System.Int32,System.Int32)
+FNDA:1,System.Void MutantDetector.Domain.AggregatesModel.Stats.Stats::.ctor(System.Int32,System.Int32)
+DA:9,1
+DA:10,1
+DA:11,1
+DA:12,1
+DA:13,1
+DA:14,1
+BRDA:13,25,0,0
+BRDA:13,25,1,1
+LF:9
+LH:9
+BRF:2
+BRH:1
+FNF:4
+FNH:4
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Infraestructure\Services\DnaProcessor.cs
+FN:22,System.Boolean MutantDetector.Infraestructure.Services.DnaProcessor::isMutant(System.Collections.Generic.IEnumerable`1<System.String>)
+FNDA:0,System.Boolean MutantDetector.Infraestructure.Services.DnaProcessor::isMutant(System.Collections.Generic.IEnumerable`1<System.String>)
+DA:23,0
+DA:25,0
+DA:26,0
+DA:27,0
+DA:29,0
+DA:30,0
+DA:31,0
+DA:33,0
+DA:34,0
+DA:35,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:41,0
+DA:42,0
+BRDA:30,70,0,0
+BRDA:30,70,1,0
+BRDA:34,104,0,0
+BRDA:34,104,1,0
+BRDA:38,138,0,0
+BRDA:38,138,1,0
+FN:44,System.Void MutantDetector.Infraestructure.Services.DnaProcessor::ProcessHorizontally()
+FNDA:0,System.Void MutantDetector.Infraestructure.Services.DnaProcessor::ProcessHorizontally()
+DA:45,0
+DA:46,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:50,0
+BRDA:46,41,1,0
+BRDA:46,41,0,0
+FN:51,System.Void MutantDetector.Infraestructure.Services.DnaProcessor::ProcessVertically()
+FNDA:0,System.Void MutantDetector.Infraestructure.Services.DnaProcessor::ProcessVertically()
+DA:52,0
+DA:53,0
+DA:54,0
+DA:55,0
+DA:56,0
+DA:57,0
+BRDA:53,36,1,0
+BRDA:53,36,0,0
+FN:59,System.String MutantDetector.Infraestructure.Services.DnaProcessor::getColumn(System.Int32)
+FNDA:0,System.String MutantDetector.Infraestructure.Services.DnaProcessor::getColumn(System.Int32)
+DA:60,0
+DA:61,0
+DA:62,0
+DA:63,0
+DA:64,0
+DA:65,0
+DA:66,0
+DA:67,0
+BRDA:62,63,1,0
+BRDA:62,63,0,0
+FN:69,System.Void MutantDetector.Infraestructure.Services.DnaProcessor::ProcessDiagonally()
+FNDA:0,System.Void MutantDetector.Infraestructure.Services.DnaProcessor::ProcessDiagonally()
+DA:70,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:77,0
+DA:78,0
+DA:79,0
+DA:81,0
+BRDA:73,47,1,0
+BRDA:73,47,0,0
+BRDA:78,95,0,0
+BRDA:78,95,1,0
+FN:87,System.Void MutantDetector.Infraestructure.Services.DnaProcessor::ProcessDiagonals(System.Int32,System.Int32,System.Int32,System.Int32)
+FNDA:0,System.Void MutantDetector.Infraestructure.Services.DnaProcessor::ProcessDiagonals(System.Int32,System.Int32,System.Int32,System.Int32)
+DA:88,0
+DA:89,0
+DA:92,0
+DA:93,0
+DA:94,0
+DA:95,0
+DA:98,0
+DA:99,0
+DA:100,0
+DA:101,0
+DA:102,0
+DA:103,0
+DA:104,0
+DA:105,0
+DA:107,0
+DA:108,0
+DA:109,0
+DA:110,0
+DA:111,0
+DA:113,0
+DA:114,0
+BRDA:92,39,1,0
+BRDA:92,39,0,0
+BRDA:98,163,1,0
+BRDA:100,53,0,0
+BRDA:103,95,1,0
+BRDA:100,53,1,0
+BRDA:109,145,1,0
+BRDA:103,95,0,0
+BRDA:109,145,0,0
+BRDA:98,163,0,0
+FN:115,System.String MutantDetector.Infraestructure.Services.DnaProcessor::getDiagonal(System.Int32,System.Int32,System.Boolean)
+FNDA:0,System.String MutantDetector.Infraestructure.Services.DnaProcessor::getDiagonal(System.Int32,System.Int32,System.Boolean)
+DA:116,0
+DA:117,0
+DA:118,0
+DA:121,0
+DA:123,0
+DA:124,0
+DA:125,0
+DA:126,0
+DA:127,0
+DA:129,0
+DA:131,0
+DA:132,0
+BRDA:118,8,0,0
+BRDA:118,8,1,0
+BRDA:129,126,1,0
+BRDA:127,93,1,0
+BRDA:127,70,0,0
+BRDA:127,79,0,0
+BRDA:127,70,1,0
+BRDA:127,79,1,0
+BRDA:127,93,0,0
+BRDA:129,103,0,0
+BRDA:129,112,0,0
+BRDA:129,103,1,0
+BRDA:129,112,1,0
+BRDA:129,126,0,0
+FN:133,System.Void MutantDetector.Infraestructure.Services.DnaProcessor::ProcessLine(System.String)
+FNDA:0,System.Void MutantDetector.Infraestructure.Services.DnaProcessor::ProcessLine(System.String)
+DA:134,0
+DA:135,0
+DA:136,0
+DA:137,0
+DA:138,0
+DA:139,0
+DA:140,0
+DA:141,0
+BRDA:135,86,1,0
+BRDA:138,75,0,0
+BRDA:138,75,1,0
+BRDA:135,86,0,0
+FN:12,System.Void MutantDetector.Infraestructure.Services.DnaProcessor::.ctor()
+FNDA:0,System.Void MutantDetector.Infraestructure.Services.DnaProcessor::.ctor()
+DA:13,0
+DA:16,0
+DA:18,0
+DA:19,0
+DA:20,0
+LF:89
+LH:0
+BRF:44
+BRH:0
+FNF:9
+FNH:0
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Infraestructure\Repository\DnaInMemoryRepository.cs
+FN:13,System.Void MutantDetector.Infraestructure.Repository.DnaInMemoryRepository::.ctor()
+FNDA:0,System.Void MutantDetector.Infraestructure.Repository.DnaInMemoryRepository::.ctor()
+DA:14,0
+DA:15,0
+DA:16,0
+DA:17,0
+FN:19,System.Void MutantDetector.Infraestructure.Repository.DnaInMemoryRepository/<AddAsync>d__2::MoveNext()
+FNDA:0,System.Void MutantDetector.Infraestructure.Repository.DnaInMemoryRepository/<AddAsync>d__2::MoveNext()
+DA:20,0
+DA:21,0
+DA:22,0
+DA:24,0
+LF:8
+LH:0
+BRF:0
+BRH:0
+FNF:2
+FNH:0
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Infraestructure\Repository\DnaRepository.cs
+FN:18,System.Void MutantDetector.Infraestructure.Repository.DnaRepository::.ctor(MutantDetector.Infraestructure.Dapper.ISqlConnectionFactory)
+FNDA:0,System.Void MutantDetector.Infraestructure.Repository.DnaRepository::.ctor(MutantDetector.Infraestructure.Dapper.ISqlConnectionFactory)
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+FN:24,System.Void MutantDetector.Infraestructure.Repository.DnaRepository/<AddAsync>d__2::MoveNext()
+FNDA:0,System.Void MutantDetector.Infraestructure.Repository.DnaRepository/<AddAsync>d__2::MoveNext()
+DA:25,0
+DA:27,0
+DA:29,0
+DA:30,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:35,0
+DA:36,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:40,0
+DA:42,0
+DA:43,0
+LF:19
+LH:0
+BRF:0
+BRH:0
+FNF:2
+FNH:0
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Infraestructure\Repository\StatsInMemoryRepository.cs
+FN:18,System.Void MutantDetector.Infraestructure.Repository.StatsInMemoryRepository/<AddStatAsync>d__2::MoveNext()
+FNDA:0,System.Void MutantDetector.Infraestructure.Repository.StatsInMemoryRepository/<AddStatAsync>d__2::MoveNext()
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+DA:23,0
+DA:24,0
+DA:25,0
+DA:26,0
+DA:28,0
+BRDA:20,16,0,0
+BRDA:20,16,1,0
+FN:30,System.Void MutantDetector.Infraestructure.Repository.StatsInMemoryRepository/<GetStatsAsync>d__3::MoveNext()
+FNDA:0,System.Void MutantDetector.Infraestructure.Repository.StatsInMemoryRepository/<GetStatsAsync>d__3::MoveNext()
+DA:31,0
+DA:32,0
+DA:33,0
+LF:12
+LH:0
+BRF:2
+BRH:0
+FNF:2
+FNH:0
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Infraestructure\Repository\StatsRepository.cs
+FN:18,System.Void MutantDetector.Infraestructure.Repository.StatsRepository::.ctor(MutantDetector.Infraestructure.Dapper.ISqlConnectionFactory)
+FNDA:0,System.Void MutantDetector.Infraestructure.Repository.StatsRepository::.ctor(MutantDetector.Infraestructure.Dapper.ISqlConnectionFactory)
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+FN:23,System.Void MutantDetector.Infraestructure.Repository.StatsRepository/<AddStatAsync>d__2::MoveNext()
+FNDA:0,System.Void MutantDetector.Infraestructure.Repository.StatsRepository/<AddStatAsync>d__2::MoveNext()
+DA:24,0
+DA:25,0
+DA:26,0
+DA:28,0
+DA:30,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:35,0
+DA:36,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:40,0
+DA:42,0
+DA:44,0
+DA:46,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:51,0
+DA:52,0
+DA:53,0
+DA:54,0
+DA:56,0
+DA:57,0
+DA:58,0
+DA:61,0
+DA:62,0
+DA:63,0
+DA:65,0
+DA:67,0
+DA:68,0
+DA:69,0
+DA:70,0
+DA:72,0
+DA:74,0
+BRDA:36,269,1,0
+BRDA:36,269,0,0
+BRDA:36,361,1,0
+BRDA:36,361,0,0
+BRDA:36,431,0,0
+BRDA:36,441,1,0
+BRDA:36,441,0,0
+BRDA:36,509,1,0
+BRDA:36,509,0,0
+BRDA:36,589,1,0
+BRDA:36,589,0,0
+BRDA:36,667,1,0
+BRDA:36,667,0,0
+BRDA:36,431,1,0
+BRDA:36,767,0,0
+BRDA:36,767,1,0
+BRDA:47,935,1,0
+BRDA:47,935,0,0
+BRDA:47,995,1,0
+BRDA:47,995,0,0
+BRDA:48,1088,1,0
+BRDA:48,1088,0,0
+BRDA:48,1148,1,0
+BRDA:48,1148,0,0
+BRDA:51,1246,0,0
+BRDA:51,1246,1,0
+FN:76,System.Void MutantDetector.Infraestructure.Repository.StatsRepository/<GetStatsAsync>d__3::MoveNext()
+FNDA:0,System.Void MutantDetector.Infraestructure.Repository.StatsRepository/<GetStatsAsync>d__3::MoveNext()
+DA:77,0
+DA:78,0
+DA:79,0
+DA:81,0
+DA:83,0
+DA:84,0
+DA:85,0
+DA:86,0
+DA:88,0
+DA:90,0
+DA:91,0
+DA:92,0
+DA:93,0
+DA:95,0
+DA:97,0
+DA:99,0
+DA:102,0
+DA:103,0
+DA:104,0
+DA:106,0
+BRDA:90,243,1,0
+BRDA:90,243,0,0
+BRDA:90,335,1,0
+BRDA:90,335,0,0
+BRDA:90,405,0,0
+BRDA:90,415,1,0
+BRDA:90,415,0,0
+BRDA:90,483,1,0
+BRDA:90,483,0,0
+BRDA:90,563,1,0
+BRDA:90,563,0,0
+BRDA:90,641,1,0
+BRDA:90,641,0,0
+BRDA:90,405,1,0
+BRDA:90,741,0,0
+BRDA:92,753,1,0
+BRDA:92,753,0,0
+BRDA:92,814,1,0
+BRDA:92,814,0,0
+BRDA:93,907,1,0
+BRDA:93,907,0,0
+BRDA:93,968,1,0
+BRDA:93,968,0,0
+BRDA:90,741,1,0
+LF:61
+LH:0
+BRF:50
+BRH:0
+FNF:3
+FNH:0
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Infraestructure\Dapper\DapperConfig.cs
+FN:8,System.String MutantDetector.Infraestructure.Dapper.DapperConfig::get_ConnectionString()
+FNDA:0,System.String MutantDetector.Infraestructure.Dapper.DapperConfig::get_ConnectionString()
+DA:9,0
+FN:9,System.Int32 MutantDetector.Infraestructure.Dapper.DapperConfig::get_Timeout()
+FNDA:0,System.Int32 MutantDetector.Infraestructure.Dapper.DapperConfig::get_Timeout()
+DA:10,0
+LF:2
+LH:0
+BRF:0
+BRH:0
+FNF:2
+FNH:0
+end_of_record
+SF:C:\Users\gonza\source\repos\gonzolopez18\meli-mutant-detector\MutantDetector.Infraestructure\Dapper\SqlConnectionFactory.cs
+FN:19,System.Data.SqlClient.SqlConnection MutantDetector.Infraestructure.Dapper.SqlConnectionFactory::GetOpenConnection()
+FNDA:0,System.Data.SqlClient.SqlConnection MutantDetector.Infraestructure.Dapper.SqlConnectionFactory::GetOpenConnection()
+DA:20,0
+DA:21,0
+DA:22,0
+DA:23,0
+DA:24,0
+DA:25,0
+DA:27,0
+DA:28,0
+BRDA:21,7,0,0
+BRDA:21,7,1,0
+BRDA:21,31,0,0
+BRDA:21,31,1,0
+FN:30,System.Void MutantDetector.Infraestructure.Dapper.SqlConnectionFactory::Dispose()
+FNDA:0,System.Void MutantDetector.Infraestructure.Dapper.SqlConnectionFactory::Dispose()
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+FN:36,System.Void MutantDetector.Infraestructure.Dapper.SqlConnectionFactory::Dispose(System.Boolean)
+FNDA:0,System.Void MutantDetector.Infraestructure.Dapper.SqlConnectionFactory::Dispose(System.Boolean)
+DA:37,0
+DA:38,0
+DA:39,0
+DA:40,0
+DA:41,0
+DA:42,0
+BRDA:38,7,0,0
+BRDA:38,7,1,0
+BRDA:38,28,0,0
+BRDA:38,28,1,0
+FN:13,System.Void MutantDetector.Infraestructure.Dapper.SqlConnectionFactory::.ctor(System.String)
+FNDA:0,System.Void MutantDetector.Infraestructure.Dapper.SqlConnectionFactory::.ctor(System.String)
+DA:14,0
+DA:15,0
+DA:16,0
+DA:17,0
+LF:22
+LH:0
+BRF:8
+BRH:0
+FNF:4
+FNH:0
+end_of_record
