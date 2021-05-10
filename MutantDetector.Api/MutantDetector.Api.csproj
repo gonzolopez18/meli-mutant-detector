@@ -42,5 +42,11 @@
     <ProjectReference Include="..\MutantDetector.Infraestructure\MutantDetector.Infraestructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="MutantDetector.Api.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 
 </Project>
