@@ -139,7 +139,9 @@ namespace MutantDetector
 
         private void ConfigFluentValidation(IServiceCollection services)
         {
+
             services.AddSingleton<IValidator<CheckMutantCommand>, CheckMutantCommandValidator>();
+
             services.AddMvc().AddFluentValidation();
         }
     }
