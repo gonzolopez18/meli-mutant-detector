@@ -30,9 +30,17 @@ namespace MutantDetector.Controllers
         [HttpGet]
         public async Task<ActionResult<StatsView>> GetStats()
         {
-            StatsView statitics = await _mediator.Send(new GetStatsQuery());
+            try
+            {
+                StatsView statitics = await _mediator.Send(new GetStatsQuery());
 
-            return Ok(statitics);
+                return Ok(statitics);
+
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500);
+            }
         }
 
     

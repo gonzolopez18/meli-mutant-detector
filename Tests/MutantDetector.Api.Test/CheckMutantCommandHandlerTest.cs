@@ -27,35 +27,17 @@ namespace MutantDetector.Api.Test
                 _mediator.Object);
         }
 
-        [Fact]
-        public async void ChechHuman()
+        [Theory]
+        [MemberData(nameof(Data))]
+        public async void CheckDnas(List<string> dnamock, bool expected)
         {
-            CheckMutantCommand checkCommand = GetCommandHuman();
-            bool IsMutant = false;
-
-            _processor.Setup(x => x.isMutant(checkCommand.dna)).Returns(IsMutant);
-
-            Dna dna = new Dna() { DnaSecuence = checkCommand.dna.ToString(), IsMutant = IsMutant };
-
-            _repository.Setup(x => x.AddAsync(It.IsAny<Dna>())).ReturnsAsync(true);
-
-            var result = await _sut.Handle(checkCommand, new System.Threading.CancellationToken());
-
-            Assert.False(result);
-            _repository.VerifyAll();
-            _processor.VerifyAll();
-        }
-
-        [Fact]
-        public async void ChechMutant()
-        {
-            CheckMutantCommand checkCommand = GetCommandMutant();
-            bool IsMutant = true;
+            CheckMutantCommand checkCommand = new CheckMutantCommand() { dna = dnamock };
+            bool IsMutant = expected;
 
             _processor.Setup(x => x.isMutant(checkCommand.dna)).Returns(IsMutant);
             _mediator
-                .Setup(m => m.Send(It.IsAny<DnaProcessedEvent>(), It.IsAny<CancellationToken>()))
-                    .Verifiable("Notification was not sent.");
+                .Setup(m => m.Publish(It.IsAny<DnaProcessedEvent>(), It.IsAny<CancellationToken>()))
+                    .Verifiable();
 
             Dna dna = new Dna() { DnaSecuence = string.Join("|", checkCommand.dna.ToArray()), IsMutant = IsMutant };
 
@@ -63,22 +45,17 @@ namespace MutantDetector.Api.Test
 
             var result = await _sut.Handle(checkCommand, new System.Threading.CancellationToken());
 
-            Assert.True(result);
+            Assert.Equal(IsMutant, result);
             _repository.VerifyAll();
             _processor.VerifyAll();
+            _mediator.VerifyAll();
         }
-
-        private CheckMutantCommand GetCommandHuman()
-        {
-            List<string> dnamock = new List<string>() { "ACGT", "CGTA", "GTAC", "TACG" };
-
-            return new CheckMutantCommand() {  dna = dnamock};
-        }
-        private CheckMutantCommand GetCommandMutant()
-        {
-            List<string> dnamock = new List<string>() { "AAAA", "AGTA", "ATAC", "AACG" };
-
-            return new CheckMutantCommand() { dna = dnamock };
-        }
+        public static IEnumerable<object[]> Data =>
+       new List<object[]>
+       {
+            new object[] { new List<string>() { "AAAA", "AGTA", "ATAC", "AACG" }, true },
+            new object[] { new List<string>() { "ACGT", "CGTA", "GTAC", "TACG" }, false },
+       };
+ 
     }
 }
