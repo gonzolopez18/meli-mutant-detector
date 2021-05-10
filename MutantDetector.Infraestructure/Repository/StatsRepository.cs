@@ -70,6 +70,7 @@ namespace MutantDetector.Infraestructure.Repository
             {
                 //log error
             }
+
         }
 
         public async Task<Stats> GetStatsAsync()

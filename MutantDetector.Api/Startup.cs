@@ -76,6 +76,7 @@ namespace MutantDetector
             services
                  .AddScoped<IDnaProcessor, DnaProcessor>();
 
+
             var sqlDnaRepositoryConfig = new DapperConfig()
             { ConnectionString = Configuration.GetConnectionString("dnaContext") };
 
@@ -101,6 +102,7 @@ namespace MutantDetector
                 ;
 
             ConfigFluentValidation(services);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

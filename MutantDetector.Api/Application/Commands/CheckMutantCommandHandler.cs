@@ -30,6 +30,8 @@ namespace MutantDetector.Api.Application.Commands
             if (result)
                 await _mediator.Publish(new DnaProcessedEvent(isMutant));
 
+             await _mediator.Publish(new DnaProcessedEvent(isMutant));
+
             return isMutant;
         }
 
