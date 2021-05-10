@@ -12,9 +12,12 @@ namespace MutantDetector.Api.Application.Commands
         public IEnumerable<string> dna { get; set; }
 
     }
-    public class DnaValidator : AbstractValidator<CheckMutantCommand>
+
+    public class CheckMutantCommandValidator : AbstractValidator<CheckMutantCommand>
     {
-        public DnaValidator()
+        public CheckMutantCommandValidator()
+
+
         {
             RuleFor(m => m.dna)
                 .Cascade(CascadeMode.StopOnFirstFailure)
