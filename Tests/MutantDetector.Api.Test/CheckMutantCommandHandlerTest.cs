@@ -9,6 +9,7 @@ using MediatR;
 using MutantDetector.Domain.DomainEvents;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MutantDetector.Api.Test
 {
@@ -56,7 +57,7 @@ namespace MutantDetector.Api.Test
                 .Setup(m => m.Send(It.IsAny<DnaProcessedEvent>(), It.IsAny<CancellationToken>()))
                     .Verifiable("Notification was not sent.");
 
-            Dna dna = new Dna() { DnaSecuence = checkCommand.dna.ToString(), IsMutant = IsMutant };
+            Dna dna = new Dna() { DnaSecuence = string.Join("|", checkCommand.dna.ToArray()), IsMutant = IsMutant };
 
             _repository.Setup(x => x.AddAsync(It.IsAny<Dna>())).ReturnsAsync(true);
 

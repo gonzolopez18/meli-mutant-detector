@@ -21,14 +21,27 @@ using MutantDetector.Domain.AggregatesModel;
 using MutantDetector.Infraestructure.Services;
 using MutantDetector.Infraestructure.Repository;
 using MutantDetector.Domain.AggregatesModel.Stats;
+using MutantDetector.Infraestructure.Dapper;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using MutantDetector.Api.Application.Commands;
 
 namespace MutantDetector
 {
     public class Startup
-    { 
+    {
+        private static readonly string envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+        private static readonly string rootDir = Environment.CurrentDirectory;
+
+        private static readonly Func<IConfigurationBuilder, IConfigurationBuilder> _configBuider = (x) => x
+                .SetBasePath(rootDir)
+                .AddJsonFile($"appsettings.json", optional: true)
+                .AddEnvironmentVariables();
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = _configBuider(new ConfigurationBuilder()).BuildAndReplacePlaceholders();
+
         }
 
         public IConfiguration Configuration { get; }
@@ -63,9 +76,33 @@ namespace MutantDetector
             services
                  .AddScoped<IDnaProcessor, DnaProcessor>();
 
+
+            var sqlDnaRepositoryConfig = new DapperConfig()
+            { ConnectionString = Configuration.GetConnectionString("dnaContext") };
+
+            var sqlStatsRepositoryConfig = new DapperConfig()
+            { ConnectionString = Configuration.GetConnectionString("statsContext") };
+
             services
-                 .AddSingleton<IDnaRepository, DnaInMemoryRepository>()
-                 .AddSingleton<IStatsRepository, StatsRepository>();
+                //.AddSingleton<IDnaRepository, DnaInMemoryRepository>()
+                .AddScoped<IDnaRepository, DnaRepository>(
+                    dr => new DnaRepository(new SqlConnectionFactory(
+                                            sqlDnaRepositoryConfig.ConnectionString)
+                    )
+                )
+                .AddSingleton(sqlDnaRepositoryConfig)
+                .AddScoped<ISqlConnectionFactory, SqlConnectionFactory>
+                    (s => new SqlConnectionFactory(
+                        sqlDnaRepositoryConfig.ConnectionString))
+                //.AddSingleton<IStatsRepository, StatsRepository>()
+                .AddScoped<IStatsRepository, StatsRepository>(
+                    dr => new StatsRepository(new SqlConnectionFactory(
+                                            sqlStatsRepositoryConfig.ConnectionString)
+                    ))
+                ;
+
+            ConfigFluentValidation(services);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -96,6 +133,14 @@ namespace MutantDetector
                 c.SwaggerEndpoint("./v1/swagger.json", "Mutant Detector V1");
                 c.RoutePrefix = $"swagger";
             });
+
+            
+        }
+
+        private void ConfigFluentValidation(IServiceCollection services)
+        {
+            services.AddSingleton<IValidator<CheckMutantCommand>, DnaValidator>();
+            services.AddMvc().AddFluentValidation();
         }
     }
 }
