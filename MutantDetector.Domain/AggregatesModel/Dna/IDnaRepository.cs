@@ -11,7 +11,7 @@ namespace MutantDetector.Domain.AggregatesModel
     {
         Task<bool> AddAsync(Dna dna);
 
-        Task<IQueryable<Dna>> GetAllAsync();
+        //Task<IQueryable<Dna>> GetAllAsync();
 
     }
 }

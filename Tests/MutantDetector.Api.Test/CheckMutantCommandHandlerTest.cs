@@ -5,6 +5,11 @@ using Xunit;
 using Moq;
 using MutantDetector.Api.Application.Model;
 using System.Collections.Generic;
+using MediatR;
+using MutantDetector.Domain.DomainEvents;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace MutantDetector.Api.Test
 {
@@ -13,62 +18,44 @@ namespace MutantDetector.Api.Test
         private readonly CheckMutantCommandHandler _sut;
         private readonly Mock<IDnaRepository> _repository = new Mock<IDnaRepository>();
         private readonly Mock<IDnaProcessor> _processor = new Mock<IDnaProcessor>();
+        private readonly Mock<IMediator> _mediator = new Mock<IMediator>();
 
         public CheckMutantCommandHandlerTest()
         {
             _sut = new CheckMutantCommandHandler(_repository.Object,
-                _processor.Object);
+                _processor.Object, 
+                _mediator.Object);
         }
 
-        [Fact]
-        public async void ChechHuman()
+        [Theory]
+        [MemberData(nameof(Data))]
+        public async void CheckDnas(List<string> dnamock, bool expected)
         {
-            CheckMutantCommand checkCommand = GetCommandHuman();
-            bool IsMutant = false;
+            CheckMutantCommand checkCommand = new CheckMutantCommand() { dna = dnamock };
+            bool IsMutant = expected;
 
             _processor.Setup(x => x.isMutant(checkCommand.dna)).Returns(IsMutant);
+            _mediator
+                .Setup(m => m.Publish(It.IsAny<DnaProcessedEvent>(), It.IsAny<CancellationToken>()))
+                    .Verifiable();
 
-            Dna dna = new Dna() { DnaSecuence = checkCommand.dna.ToString(), IsMutant = IsMutant };
+            Dna dna = new Dna() { DnaSecuence = string.Join("|", checkCommand.dna.ToArray()), IsMutant = IsMutant };
 
             _repository.Setup(x => x.AddAsync(It.IsAny<Dna>())).ReturnsAsync(true);
 
             var result = await _sut.Handle(checkCommand, new System.Threading.CancellationToken());
 
-            Assert.False(result);
+            Assert.Equal(IsMutant, result);
             _repository.VerifyAll();
             _processor.VerifyAll();
+            _mediator.VerifyAll();
         }
-
-        [Fact]
-        public async void ChechMutant()
-        {
-            CheckMutantCommand checkCommand = GetCommandMutant();
-            bool IsMutant = true;
-
-            _processor.Setup(x => x.isMutant(checkCommand.dna)).Returns(IsMutant);
-
-            Dna dna = new Dna() { DnaSecuence = checkCommand.dna.ToString(), IsMutant = IsMutant };
-
-            _repository.Setup(x => x.AddAsync(It.IsAny<Dna>())).ReturnsAsync(true);
-
-            var result = await _sut.Handle(checkCommand, new System.Threading.CancellationToken());
-
-            Assert.True(result);
-            _repository.VerifyAll();
-            _processor.VerifyAll();
-        }
-
-        private CheckMutantCommand GetCommandHuman()
-        {
-            List<string> dnamock = new List<string>() { "ACGT", "CGTA", "GTAC", "TACG" };
-
-            return new CheckMutantCommand() {  dna = dnamock};
-        }
-        private CheckMutantCommand GetCommandMutant()
-        {
-            List<string> dnamock = new List<string>() { "AAAA", "AGTA", "ATAC", "AACG" };
-
-            return new CheckMutantCommand() { dna = dnamock };
-        }
+        public static IEnumerable<object[]> Data =>
+       new List<object[]>
+       {
+            new object[] { new List<string>() { "AAAA", "AGTA", "ATAC", "AACG" }, true },
+            new object[] { new List<string>() { "ACGT", "CGTA", "GTAC", "TACG" }, false },
+       };
+ 
     }
 }

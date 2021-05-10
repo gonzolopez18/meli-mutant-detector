@@ -7,6 +7,8 @@ namespace MutantDetector.Domain.AggregatesModel.Stats
 {
     public interface IStatsRepository
     {
-        public Task<Stats> GetStats();
+        public Task<Stats> GetStatsAsync();
+
+        public Task AddStatAsync(bool isMutant);
     }
 }
