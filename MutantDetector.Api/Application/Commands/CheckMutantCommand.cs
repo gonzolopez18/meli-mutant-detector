@@ -17,6 +17,7 @@ namespace MutantDetector.Api.Application.Commands
     {
         public CheckMutantCommandValidator()
 
+
         {
             RuleFor(m => m.dna)
                 .Cascade(CascadeMode.StopOnFirstFailure)
