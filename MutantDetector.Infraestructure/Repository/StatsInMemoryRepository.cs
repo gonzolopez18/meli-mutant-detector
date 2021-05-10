@@ -18,8 +18,12 @@ namespace MutantDetector.Infraestructure.Repository
         public async Task AddStatAsync(bool isMutant)
         {
             if (isMutant)
+            {
                 ++mutantsQty;
-            ++humansQty;
+            }else
+            {
+                ++humansQty;
+            }
 
         }
 
