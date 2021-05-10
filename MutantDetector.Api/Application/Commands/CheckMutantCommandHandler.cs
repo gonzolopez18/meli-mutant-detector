@@ -28,9 +28,7 @@ namespace MutantDetector.Api.Application.Commands
             bool result = await _dnaRepository.AddAsync(new Dna() { DnaSecuence = string.Join("|", request.dna.ToArray()), IsMutant = isMutant });
 
             if (result)
-                await _mediator.Publish(new DnaProcessedEvent(isMutant));
-
-             await _mediator.Publish(new DnaProcessedEvent(isMutant));
+                await _mediator.Publish(new DnaProcessedEvent(isMutant), cancellationToken);
 
             return isMutant;
         }
