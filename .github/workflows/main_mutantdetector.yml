@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: ${{ secrets.AzureAppService_ContainerUsername_70f43901b8e84421a580d4b23d7cf73a }}/mutantdetectorapi:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./MutantDetector.Api/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
