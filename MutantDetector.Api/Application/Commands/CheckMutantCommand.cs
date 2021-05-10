@@ -24,12 +24,14 @@ namespace MutantDetector.Api.Application.Commands
                 .NotEmpty()
                 .Must(d => d.All(x => x.ToUpper().ToCharArray()
                         .All(c => "ACGT".Contains(c))))
-                    .WithMessage("Sólo se acepta A - C - G -T.");
+                    .WithMessage("Solo se acepta A - C - G -T.");
+
 
             RuleFor(m => m.dna)
                 .Cascade(CascadeMode.StopOnFirstFailure)
                 .Must(d => d.All(x => x.Length == d.Count()))
-                    .WithMessage("La matriz no es simétrica.");
+                    .WithMessage("La matriz no es simetrica.");
+
         }
     }
 }

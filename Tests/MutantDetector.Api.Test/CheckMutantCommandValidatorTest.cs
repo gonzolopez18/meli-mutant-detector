@@ -52,8 +52,10 @@ namespace MutantDetector.Api.Test
         public static IEnumerable<object[]> Data =>
        new List<object[]>
        {
-            new object[] { new List<string>() { "AAAA", "AGTA", "ATAC", "AACS" }, "Sólo se acepta A - C - G -T." },
-            new object[] { new List<string>() { "ACGT", "CGTA", "GTAC", "TA" }, "La matriz no es simétrica."},
+            new object[] { new List<string>() { "AAAA", "AGTA", "ATAC", "AACS" }, "Solo se acepta A - C - G -T." },
+            new object[] { new List<string>() { "ACGT", "CGTA", "GTAC", "TA" }, "La matriz no es simetrica."},
+
+
        };
  
     }
