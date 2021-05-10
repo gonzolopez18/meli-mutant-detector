@@ -18,6 +18,7 @@ namespace MutantDetector.Infraestructure.Services
         public DnaProcessor()
         {
         }
+
         public bool isMutant(IEnumerable<string> Dna)
         {
 
@@ -115,7 +116,6 @@ namespace MutantDetector.Infraestructure.Services
         {
             string column = "";
             int increment = Left2Right ? 1 : -1;
-
 
             do
             {

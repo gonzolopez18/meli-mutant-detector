@@ -20,7 +20,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{51A091BE-BBDE-42DF-AE6F-76BC5B26CAB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MutantDetector.Api.Test", "Tests\MutantDetector.Api.Test\MutantDetector.Api.Test.csproj", "{F87AC31D-3D73-4DCA-9EF2-4E7B680EDFDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MutantDetector.Api.Test", "Tests\MutantDetector.Api.Test\MutantDetector.Api.Test.csproj", "{F87AC31D-3D73-4DCA-9EF2-4E7B680EDFDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MutantDetector.Infraestructure.Test", "Tests\MutantDetector.Infraestructure.Test\MutantDetector.Infraestructure.Test.csproj", "{B0DF317F-3051-4AEF-A758-84E9C26E27D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,12 +46,17 @@ Global
 		{F87AC31D-3D73-4DCA-9EF2-4E7B680EDFDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F87AC31D-3D73-4DCA-9EF2-4E7B680EDFDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F87AC31D-3D73-4DCA-9EF2-4E7B680EDFDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0DF317F-3051-4AEF-A758-84E9C26E27D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0DF317F-3051-4AEF-A758-84E9C26E27D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0DF317F-3051-4AEF-A758-84E9C26E27D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0DF317F-3051-4AEF-A758-84E9C26E27D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F87AC31D-3D73-4DCA-9EF2-4E7B680EDFDE} = {51A091BE-BBDE-42DF-AE6F-76BC5B26CAB2}
+		{B0DF317F-3051-4AEF-A758-84E9C26E27D8} = {51A091BE-BBDE-42DF-AE6F-76BC5B26CAB2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C56C54E4-370A-48FE-B277-FFC450B2B6DE}
