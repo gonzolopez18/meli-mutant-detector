@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/gonzolopez18/databases/dnadb",
+      "type": "mssql.azure",
+      "connectionId": "dnaContext",
+      "secretStore": "AzureAppSettings"
+    },
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/gonzolopez18/databases/dnadb",
+      "type": "mssql.azure",
+      "connectionId": "statsContext",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
