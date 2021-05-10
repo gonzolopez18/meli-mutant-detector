@@ -22,6 +22,9 @@ using MutantDetector.Infraestructure.Services;
 using MutantDetector.Infraestructure.Repository;
 using MutantDetector.Domain.AggregatesModel.Stats;
 using MutantDetector.Infraestructure.Dapper;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using MutantDetector.Api.Application.Commands;
 
 namespace MutantDetector
 {
@@ -97,6 +100,7 @@ namespace MutantDetector
                     ))
                 ;
 
+            ConfigFluentValidation(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -127,6 +131,14 @@ namespace MutantDetector
                 c.SwaggerEndpoint("./v1/swagger.json", "Mutant Detector V1");
                 c.RoutePrefix = $"swagger";
             });
+
+            
+        }
+
+        private void ConfigFluentValidation(IServiceCollection services)
+        {
+            services.AddSingleton<IValidator<CheckMutantCommand>, DnaValidator>();
+            services.AddMvc().AddFluentValidation();
         }
     }
 }
