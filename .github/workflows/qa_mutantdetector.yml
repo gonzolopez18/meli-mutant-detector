@@ -29,6 +29,7 @@ jobs:
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
+        context: .
         push: true
         tags: ${{ secrets.AzureAppService_ContainerUsername_2180082e62ee499f89098c9de21f2821 }}/mutantdetectorapi20210510183347.azurecr.io/mutantdetectorapi:${{ github.sha }}
         file: ./MutantDetector.Api/Dockerfile
