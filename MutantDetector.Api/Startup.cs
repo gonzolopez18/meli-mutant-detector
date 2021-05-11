@@ -37,6 +37,7 @@ namespace MutantDetector
         private static readonly Func<IConfigurationBuilder, IConfigurationBuilder> _configBuider = (x) => x
                 .SetBasePath(rootDir)
                 .AddJsonFile($"appsettings.json", optional: true)
+                 .AddJsonFile($"appsettings{(string.IsNullOrEmpty(envName) ? string.Empty : $".{envName}")}.json", optional: true)
                 .AddEnvironmentVariables();
         public Startup(IConfiguration configuration)
         {
