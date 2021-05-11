@@ -68,7 +68,7 @@ namespace MutantDetector.Infraestructure.Repository
             }
             catch (Exception e)
             {
-                //log error
+                throw e;
             }
 
         }
@@ -101,7 +101,8 @@ namespace MutantDetector.Infraestructure.Repository
             }
             catch (Exception e)
             {
-                return new Stats(0, 0); ;
+                //return new Stats(0, 0); ;
+                throw e;
             }
         }
     
