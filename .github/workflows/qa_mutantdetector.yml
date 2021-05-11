@@ -34,7 +34,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ${{ secrets.AzureAppService_ContainerUsername_65c4aa2c9c744c6ba187ccb3c7dda46f }}/mutantdetectorapi20210510183347.azurecr.io/mutantdetectorapi:${{ github.sha }}
+        tags: ${{ secrets.AzureAppService_ContainerUsername_65c4aa2c9c744c6ba187ccb3c7dda46f }}/mutantdetectoracr.azurecr.io/mutantdetectoracr:${{ github.sha }}
         file: ./MutantDetector.Api/Dockerfile
 
   deploy:
@@ -52,4 +52,4 @@ jobs:
         app-name: 'mutantdetector'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_ac5bed4de18b4e94a9e9336d87f82a5b }}
-        images: 'mutantdetectoracr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_65c4aa2c9c744c6ba187ccb3c7dda46f }}/mutantdetectorapi20210510183347.azurecr.io/mutantdetectorapi:${{ github.sha }}'
+        images: 'mutantdetectoracr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_65c4aa2c9c744c6ba187ccb3c7dda46f }}/mutantdetectoracr.azurecr.io/mutantdetectoracr:${{ github.sha }}'
