@@ -1,12 +1,12 @@
 [![Coverage Status](https://coveralls.io/repos/github/gonzolopez18/meli-mutant-detector/badge.svg?branch=main)](https://coveralls.io/github/gonzolopez18/meli-mutant-detector?branch=main)
 
-# meli-mutant-detector
+# MELI Mutant Detector
 
 El objetivo de la herramienta es determinar si una secuencia de ADN pertenece a un mutante o no. 
 
-Este servicio brinda documentación a través de swagger. 
+Este servicio brinda documentaciÃ³n a travÃ©s de swagger. 
 
-Puede ver una versión en vivo en [MUTANT DETECTOR](https://mutantdetector.azurewebsites.net/swagger/index.html)
+Puede ver una versiÃ³n en vivo en [MUTANT DETECTOR](https://mutantdetector.azurewebsites.net/swagger/index.html)
 
 
 ## Requisitos
@@ -14,12 +14,12 @@ Puede ver una versión en vivo en [MUTANT DETECTOR](https://mutantdetector.azurew
 * [Net Core SDK 3.1](https://docs.microsoft.com/en-us/dotnet/core/install/sdk?pivots=os-windows)
 * [Git](https://git-scm.com/)
 * [Sql Server](https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server?view=sql-server-ver15),
-	Puede instalarlo localmente o en un servidor remoto. En cualquier caso, necesitará contar un usuario con permisos de creación de base de datos.
-	Ejecutar en el servidor Sql el script que se encuentra dentro de la carpeta .ScriptBD de la solución.
-* [Edtitor de código](https://code.visualstudio.com/)
+> Puede instalarlo localmente o en un servidor remoto. En cualquier caso, necesitarÃ¡ contar un usuario con permisos de creaciÃ³n de base de datos.
+Ejecutar en el servidor Sql el script que se encuentra dentro de la carpeta .ScriptBD de la soluciÃ³n.
+* [Edtitor de cÃ³digo](https://code.visualstudio.com/)
 	
 
-## Instalación  
+## InstalaciÃ³n  
 
 * Clonar Repositorio
 
@@ -46,20 +46,19 @@ dotnet build
 dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
 ```
 
-* Configuración de base de datos
- Editar las connection string en el archivo MutantDetector.Api/appsettings.json, 
- reemplazando por los valores de la base de datos disponible. El usuario deberá poseer
+* ConfiguraciÃ³n de base de datos
+ > Editar las connection string en el archivo MutantDetector.Api/appsettings.json, 
+ reemplazando por los valores de la base de datos disponible. El usuario deberÃ¡ poseer
  permiso de lectura y escritura sobre la misma.
 
-*Ejecución
+* EjecuciÃ³n
 
 ```
 dotnet run --project MutantDetector.Api
 ```
 
-## API REST
-
-Abrir https://localhost:5001/swagger/index.html
+* API REST
+> Ingresar en https://localhost:5001/swagger/index.html
 
 
 
