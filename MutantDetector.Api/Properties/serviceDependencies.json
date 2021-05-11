@@ -1,12 +1,13 @@
 {
   "dependencies": {
-    "mssql2": {
-      "type": "mssql",
-      "connectionId": "dnaContext"
-    },
+
     "mssql1": {
       "type": "mssql",
       "connectionId": "statsContext"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "dnaContext"
     }
   }
 }
