@@ -22,16 +22,16 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v1
       with:
-        registry: https://mutantdetectorapi20210510183347.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_a914be0a0d5348fa9cd11676cce0bacf }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_2b66e9b8d282430f89dc2a52e588289e }}
+        registry: https://mutantdetectorapi.azurecr.io/
+        username: ${{ secrets.AzureAppService_ContainerUsername_8f1be4ee23294cb8afd19f19d6583252 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_63c56ce404564113845ce48f361bdbe1 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ${{ secrets.AzureAppService_ContainerUsername_a914be0a0d5348fa9cd11676cce0bacf }}/mutantdetectorapi:${{ github.sha }}
-        file: ./MutantDetector.Api.Dockerfile
+        tags: ${{ secrets.AzureAppService_ContainerUsername_8f1be4ee23294cb8afd19f19d6583252 }}/mutantdetectorapi:${{ github.sha }}
+        file: ./Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'mutantdetector'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_cde5db1a8835415fa5514810338f95a8 }}
-        images: 'mutantdetectorapi20210510183347.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_a914be0a0d5348fa9cd11676cce0bacf }}/mutantdetectorapi:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_dca90376761c469abe259a47e8cf41cc }}
+        images: 'mutantdetectorapi.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8f1be4ee23294cb8afd19f19d6583252 }}/mutantdetectorapi:${{ github.sha }}'
