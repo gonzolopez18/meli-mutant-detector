@@ -37,7 +37,7 @@ namespace MutantDetector.Infraestructure.Repository
             }
             catch(Exception e)
             {
-                return false;
+                throw e;
             }
             return true;
         }

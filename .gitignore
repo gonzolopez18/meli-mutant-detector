@@ -266,3 +266,4 @@ __pycache__/
 # VS Code History Plugin
 .history
 
+/MutantDetector.Api/appsettings.Production.json

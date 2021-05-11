@@ -23,14 +23,23 @@ namespace MutantDetector.Api.Application.Commands
         }
         public async Task<bool> Handle(CheckMutantCommand request, CancellationToken cancellationToken)
         {
-            bool isMutant = _dnaProcessor.isMutant(request.dna);
+            try
+            {
+                bool isMutant = _dnaProcessor.isMutant(request.dna);
 
-            bool result = await _dnaRepository.AddAsync(new Dna() { DnaSecuence = string.Join("|", request.dna.ToArray()), IsMutant = isMutant });
+                bool result = await _dnaRepository.AddAsync(new Dna() { DnaSecuence = string.Join("|", request.dna.ToArray()), IsMutant = isMutant });
 
-            if (result)
-                await _mediator.Publish(new DnaProcessedEvent(isMutant), cancellationToken);
+                if (result)
+                    await _mediator.Publish(new DnaProcessedEvent(isMutant), cancellationToken);
 
-            return isMutant;
+                return isMutant;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            
         }
 
     }
