@@ -60,7 +60,17 @@ namespace MutantDetector
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mutant Detector", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Mutant Detector",
+                    Version = "v1",
+                    Description = "El objetivo de la herramienta es determinar si una secuencia de ADN pertenece a un mutante o no.",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Repositorio GITHUB",
+                        Url = new Uri("https://github.com/gonzolopez18/meli-mutant-detector")
+                    }
+                });
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
