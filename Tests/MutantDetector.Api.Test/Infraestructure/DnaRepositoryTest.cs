@@ -16,41 +16,63 @@ namespace MutantDetector.Infraestructure.Api
 {
     public class DnaRepositoryTest
     {
-        private readonly Mock<ISqlConnectionFactory> _connectionFactory = new Mock<ISqlConnectionFactory>();
+        private readonly string _mockedConnString = @"Server=SERVERNAME;Database=TESTDB;Integrated Security=true;";
+        private readonly Mock<IDapperWrapper> mockDapper = new Mock<IDapperWrapper>();
         private readonly DnaRepository _sut;
         public DnaRepositoryTest()
         {
-            DnaRepository _sut = new DnaRepository( _connectionFactory.Object);
+            _sut = new DnaRepository(_mockedConnString, mockDapper.Object);
         }
 
-        //[Fact]
-        //public async void AddAsync()
-        //{
-
-        //    var dbConnection = new Mock<IDbConnection>();
-        //   _connectionFactory.Setup(x => x.GetOpenConnection())
-        //        .Returns(dbConnection.Object);
-        //    dbConnection.SetupDapper(x => x.ExecuteAsync(It.IsAny<string>(), null, null, null, null))
-        //        .ReturnsAsync(1);
-                
- 
-
-        //    bool expected = true;
-
-        //    Dna dna = new Dna();
-
-        //    var result = await _sut.AddAsync(dna);
-
-        //    Assert.True(result);
-        //}
-
-
-
-    public static IEnumerable<object[]> Data =>
-        new List<object[]>
+        [Fact]
+        public async void AddAsync()
         {
-                        new object[] { true, 1, 0 },
-                        new object[] { false, 0, 1 }
-        };
-}
+
+            Dna dna = new Dna() { DnaSecuence = "AAAA", IsMutant = true };
+
+            var dictionary = new Dictionary<string, object>
+                        {
+                            { "@DnaSecuence", dna.DnaSecuence },
+                            { "@IsMutant", dna.IsMutant },
+                        };
+
+            string sqlQuery = @"INSERT INTO [dbo].[Dna]
+                                            (ID, [DnaSecuence],[IsMutant])
+                                        VALUES(NEWID(), @DnaSecuence , @IsMutant)";
+
+            mockDapper.Setup(t => t.ExecuteAsync(It.Is<IDbConnection>(db => 
+                        db.ConnectionString == _mockedConnString), sqlQuery, dictionary))
+                        .ReturnsAsync(1);
+
+            var result = await _sut.AddAsync(dna);
+
+
+            Assert.True(result);
+        }
+
+        [Fact]
+        public async void AddAsyncThrowsError()
+        {
+
+            Dna dna = new Dna() { DnaSecuence = "AAAA", IsMutant = true };
+
+            var dictionary = new Dictionary<string, object>
+                        {
+                            { "@DnaSecuence", dna.DnaSecuence },
+                            { "@IsMutant", dna.IsMutant },
+                        };
+
+            string sqlQuery = @"INSERT INTO [dbo].[Dna]
+                                            (ID, [DnaSecuence],[IsMutant])
+                                        VALUES(NEWID(), @DnaSecuence , @IsMutant)";
+
+            mockDapper.Setup(t => t.ExecuteAsync(It.Is<IDbConnection>(db =>
+                        db.ConnectionString == _mockedConnString), sqlQuery, dictionary))
+                        .ThrowsAsync(new Exception()).Verifiable();
+
+            await Assert.ThrowsAsync<Exception>(async () => await _sut.AddAsync(dna));
+
+        }
+
+    }
 }

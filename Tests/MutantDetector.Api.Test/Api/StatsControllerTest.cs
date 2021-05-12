@@ -31,7 +31,7 @@ namespace MutantDetector.Api.Test
         {
             string expected = "200";
             GetStatsQuery getquery = new GetStatsQuery();
-            StatsView statitics = new StatsView( 1, 1, 1);
+            StatsView statitics = new StatsView( 1, 1);
 
             _mediator
                 .Setup(m => m.Send(It.IsAny<GetStatsQuery>(), It.IsAny<CancellationToken>()))
@@ -50,7 +50,7 @@ namespace MutantDetector.Api.Test
         {
             string expected = "500";
             GetStatsQuery getquery = new GetStatsQuery();
-            StatsView statitics = new StatsView(1, 1, 1);
+            StatsView statitics = new StatsView(1, 1);
 
             _mediator
                 .Setup(m => m.Send(It.IsAny<GetStatsQuery>(), It.IsAny<CancellationToken>()))
