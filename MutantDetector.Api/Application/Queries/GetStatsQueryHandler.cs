@@ -23,7 +23,7 @@ namespace MutantDetector.Api.Application.Queries
 
             Stats stats = await _statsRepository.GetStatsAsync();
 
-            return new StatsView(stats.count_mutant_dna, stats.count_human_dna, stats.ratio);
+            return new StatsView(stats.count_mutant_dna, stats.count_human_dna);
         }
     }
 }

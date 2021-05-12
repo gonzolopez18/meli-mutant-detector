@@ -4,6 +4,7 @@ using MutantDetector.Infraestructure.Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -13,12 +14,13 @@ namespace MutantDetector.Infraestructure.Repository
 {
     public class DnaRepository : IDnaRepository
     {
-
-        private readonly ISqlConnectionFactory _connectionFactory;
-
-        public DnaRepository(ISqlConnectionFactory connectionFactory)
+        private readonly IDapperWrapper _dapperWrapper;
+        private readonly string ConnectionString;
+        
+        public DnaRepository(string connectionString, IDapperWrapper dapperWrapper)
         {
-            _connectionFactory = connectionFactory;
+            ConnectionString = connectionString;
+            _dapperWrapper = dapperWrapper;
         }
 
         public async Task<bool> AddAsync(Dna dna)
@@ -26,13 +28,20 @@ namespace MutantDetector.Infraestructure.Repository
             try
             {
 
-                using (IDbConnection db = _connectionFactory.GetOpenConnection())
+                var dictionary = new Dictionary<string, object>
+                        {
+                            { "@DnaSecuence", dna.DnaSecuence },
+                            { "@IsMutant", dna.IsMutant },
+                        };
+
+                using (var connection = new SqlConnection(ConnectionString))
                 {
                     string sqlQuery = @"INSERT INTO [dbo].[Dna]
                                             (ID, [DnaSecuence],[IsMutant])
                                         VALUES(NEWID(), @DnaSecuence , @IsMutant)";
 
-                    int rowsAffected = await db.ExecuteAsync(sqlQuery, new { dna.DnaSecuence, dna.IsMutant });
+                    int rowsAffected = await _dapperWrapper.ExecuteAsync(
+                        connection, sqlQuery, dictionary);
                 }
             }
             catch(Exception e)
@@ -42,10 +51,6 @@ namespace MutantDetector.Infraestructure.Repository
             return true;
         }
 
-        //public Task<IQueryable<Dna>> GetAllAsync()
-        //{
-        //    throw new NotImplementedException();
-        //}
 
     }
 }
