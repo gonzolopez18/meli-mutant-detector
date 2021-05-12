@@ -20,7 +20,7 @@ namespace MutantDetector.Api.Application.DomainEventHandlers
 
         public async Task Handle(DnaProcessedEvent notification, CancellationToken cancellationToken)
         {
-            await _statsRepository.AddStatAsync(notification.IsMutant);
+            Task.Run(() => _statsRepository.AddStatAsync(notification.IsMutant));
         }
     }
 }

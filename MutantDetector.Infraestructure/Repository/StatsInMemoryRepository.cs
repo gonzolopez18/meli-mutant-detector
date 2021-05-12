@@ -29,7 +29,7 @@ namespace MutantDetector.Infraestructure.Repository
 
         public async Task<Stats> GetStatsAsync()
         {
-            return new Stats(mutantsQty, humansQty);
+            return new Stats() { count_mutant_dna = mutantsQty, count_human_dna = humansQty };
         }
     
     }
