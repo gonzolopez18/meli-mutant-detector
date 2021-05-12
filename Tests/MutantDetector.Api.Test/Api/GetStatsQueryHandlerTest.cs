@@ -4,6 +4,7 @@ using System;
 using Xunit;
 using Moq;
 using MutantDetector.Api.Application.Model;
+using System.Collections.Generic;
 
 namespace MutantDetector.Api.Test
 {
@@ -17,23 +18,28 @@ namespace MutantDetector.Api.Test
             _sut = new GetStatsQueryHandler(_repository.Object);
         }
 
-        [Fact]
-        public async void Stats()
+        [Theory]
+        [MemberData(nameof(System.Data))]
+        public async void Stats( int mutants, int humans, decimal expectedRatio)
         {
-            GetStatsQuery StatsQuery = GetQuery();
-            Stats statMocked = new Stats(5, 10);
-            StatsView view = new StatsView(5, 10, (decimal)0.5);
+            GetStatsQuery StatsQuery = new GetStatsQuery();
+
+            Stats statMocked = new Stats() {  count_mutant_dna = mutants, count_human_dna = humans };
             _repository.Setup(x => x.GetStatsAsync()).ReturnsAsync(statMocked).Verifiable();
 
             var result = await _sut.Handle(StatsQuery, new System.Threading.CancellationToken());
 
-            Assert.Equal(statMocked.ratio, result.ratio);
+            Assert.Equal(expectedRatio, result.ratio);
             _repository.VerifyAll();
         }
 
-        private GetStatsQuery GetQuery()
-        {
-            return new GetStatsQuery();
-        }
+
+        public static IEnumerable<object[]> Data =>
+    new List<object[]>
+    {
+                        new object[] { 5, 10, 0.5 },
+                        new object[] { 10, 0, 0 },
+                        new object[] { 10, 5, 2 }
+    };
     }
 }

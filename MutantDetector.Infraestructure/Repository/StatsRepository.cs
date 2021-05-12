@@ -26,14 +26,14 @@ namespace MutantDetector.Infraestructure.Repository
             int mutants = 0;
             try
             {
-
                 using (IDbConnection db = _connectionFactory.GetOpenConnection())
                 {
                     string sqlQueryGet = @"select count_human_dna , count_mutant_dna  
                                             from Stats";
 
-                    dynamic data = (await db.QueryAsync(sqlQueryGet)).SingleOrDefault();
-                    if (data == null || data.count_human_dna == null)
+                    Stats data = (await db.QueryAsync<Stats>(sqlQueryGet)).SingleOrDefault();
+
+                    if (data == null || data.Id== null)
                     {
                         string insertQuery = @" 
                                 INSERT INTO Stats (Id, count_human_dna, count_mutant_dna)
@@ -85,19 +85,10 @@ namespace MutantDetector.Infraestructure.Repository
                     string sqlQuery = @"select count_human_dna , count_mutant_dna 
                             from Stats where Id = '00000000-0000-0000-0000-000000000000'";
 
-                    dynamic data = (await db.QueryAsync(sqlQuery)).SingleOrDefault();
+                    Stats data = (await db.QueryAsync<Stats>(sqlQuery)).SingleOrDefault();
 
-                    if (data != null || data.count_human_dna != null)
-                    {
-                        humansQty = (int)data.count_human_dna;
-                        mutantsQty = (int)data.count_mutant_dna;
-
-                    }
-
+                    return data ?? new Stats();
                 }
-
-                return new Stats(mutantsQty, humansQty );
-
             }
             catch (Exception e)
             {
