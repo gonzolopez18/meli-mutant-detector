@@ -15,7 +15,7 @@ Puede ver una versión en vivo en [MUTANT DETECTOR](https://mutantdetector.azure
 * [Git](https://git-scm.com/)
 * [Sql Server](https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server?view=sql-server-ver15),
 > Puede instalarlo localmente o en un servidor remoto. En cualquier caso, necesitará contar un usuario con permisos de creación de base de datos.
-Ejecutar en el servidor Sql el script que se encuentra dentro de la carpeta .ScriptBD de la solución.
+Ejecutar en el servidor Sql el script DbCreation.sql que se encuentra en la raíz de la solución.
 * [Edtitor de código](https://code.visualstudio.com/)
 	
 
