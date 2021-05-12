@@ -87,29 +87,13 @@ namespace MutantDetector
             services
                  .AddScoped<IDnaProcessor, DnaProcessor>();
 
-
-            var sqlDnaRepositoryConfig = new DapperConfig()
-            { ConnectionString = Configuration.GetConnectionString("dnaContext") };
-
-            var sqlStatsRepositoryConfig = new DapperConfig()
-            { ConnectionString = Configuration.GetConnectionString("statsContext") };
-
             services
-                //.AddSingleton<IDnaRepository, DnaInMemoryRepository>()
                 .AddScoped<IDnaRepository, DnaRepository>(
-                    dr => new DnaRepository(new SqlConnectionFactory(
-                                            sqlDnaRepositoryConfig.ConnectionString)
-                    )
-                )
-                .AddSingleton(sqlDnaRepositoryConfig)
-                .AddScoped<ISqlConnectionFactory, SqlConnectionFactory>
-                    (s => new SqlConnectionFactory(
-                        sqlDnaRepositoryConfig.ConnectionString))
-                //.AddSingleton<IStatsRepository, StatsRepository>()
+                    dr => new DnaRepository(Configuration.GetConnectionString("dnaContext"),
+                                new DapperWrapper()))
                 .AddScoped<IStatsRepository, StatsRepository>(
-                    dr => new StatsRepository(new SqlConnectionFactory(
-                                            sqlStatsRepositoryConfig.ConnectionString)
-                    ))
+                    dr => new StatsRepository(Configuration.GetConnectionString("statsContext"), 
+                    new DapperWrapper()))
                 ;
 
             ConfigFluentValidation(services);

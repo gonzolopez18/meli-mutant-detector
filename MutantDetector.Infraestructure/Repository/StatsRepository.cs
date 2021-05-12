@@ -5,6 +5,7 @@ using MutantDetector.Infraestructure.Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -14,32 +15,33 @@ namespace MutantDetector.Infraestructure.Repository
 {
     public class StatsRepository : IStatsRepository
     {
-        private readonly ISqlConnectionFactory _connectionFactory;
+        private readonly IDapperWrapper _dapperWrapper;
+        private readonly string ConnectionString;
 
-        public StatsRepository(ISqlConnectionFactory connectionFactory)
+        public StatsRepository(string connectionString, IDapperWrapper dapperWrapper)
         {
-            _connectionFactory = connectionFactory;
+            ConnectionString = connectionString;
+            _dapperWrapper = dapperWrapper;
         }
+
         public async Task AddStatAsync(bool isMutant)
         {
             int humans = 0;
             int mutants = 0;
             try
             {
-                using (IDbConnection db = _connectionFactory.GetOpenConnection())
+                using (var connection = new SqlConnection(ConnectionString))
                 {
-                    string sqlQueryGet = @"select count_human_dna , count_mutant_dna  
-                                            from Stats";
+                    string sqlQueryGet = "select count_human_dna , count_mutant_dna from Stats";
 
-                    Stats data = (await db.QueryAsync<Stats>(sqlQueryGet)).SingleOrDefault();
+                    Stats data = await _dapperWrapper.QuerySingle<Stats>(connection, sqlQueryGet);
 
                     if (data == null || data.Id== null)
                     {
-                        string insertQuery = @" 
-                                INSERT INTO Stats (Id, count_human_dna, count_mutant_dna)
-                                VALUES ('00000000-0000-0000-0000-000000000000', 0, 0)";
+                        string insertQuery = "INSERT INTO Stats (Id, count_human_dna, count_mutant_dna)" +
+                            " VALUES ('00000000-0000-0000-0000-000000000000', 0, 0)";
 
-                        await db.ExecuteAsync(insertQuery);
+                        await _dapperWrapper.ExecuteAsync(connection, insertQuery);
 
                     }
                     else
@@ -56,13 +58,16 @@ namespace MutantDetector.Infraestructure.Repository
                     {
                         humans++;
                     }
-                        
 
-                    string updateQuery = @"
-                        UPDATE Stats SET count_human_dna = @humans, count_mutant_dna = @mutants
-                          WHERE Id = '00000000-0000-0000-0000-000000000000'";
+                    var dictionary = new Dictionary<string, object>
+                        {
+                            { "@humans", humans },
+                            { "@mutants", mutants },
+                        };
+                    string updateQuery = "UPDATE Stats SET count_human_dna = @humans, " +
+                        "count_mutant_dna = @mutants WHERE Id = '00000000-0000-0000-0000-000000000000'";
                     
-                    await db.ExecuteAsync(updateQuery, new { humans, mutants});
+                    await _dapperWrapper.ExecuteAsync(connection, updateQuery, dictionary );
 
                 }
             }
@@ -75,24 +80,21 @@ namespace MutantDetector.Infraestructure.Repository
 
         public async Task<Stats> GetStatsAsync()
         {
-            int humansQty = 0;
-            int mutantsQty = 0;
             try
             {
 
-                using (IDbConnection db = _connectionFactory.GetOpenConnection())
+                using (var connection = new SqlConnection(ConnectionString))
                 {
-                    string sqlQuery = @"select count_human_dna , count_mutant_dna 
-                            from Stats where Id = '00000000-0000-0000-0000-000000000000'";
+                    string sqlQuery = "select count_human_dna , count_mutant_dna " +
+                        "from Stats where Id = '00000000-0000-0000-0000-000000000000'";
 
-                    Stats data = (await db.QueryAsync<Stats>(sqlQuery)).SingleOrDefault();
+                    Stats data = await _dapperWrapper.QuerySingle<Stats>(connection, sqlQuery);
 
                     return data ?? new Stats();
                 }
             }
             catch (Exception e)
             {
-                //return new Stats(0, 0); ;
                 throw e;
             }
         }
