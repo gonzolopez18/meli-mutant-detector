@@ -9,32 +9,28 @@ using MutantDetector.Domain.DomainEvents;
 
 namespace MutantDetector.Api.Test
 {
-    public class DnaProcessedEventHandlerTest
-    {
-        private readonly DnaProcessedEventHandler _sut;
-        private readonly Mock<IStatsRepository> _repository = new Mock<IStatsRepository>();
+    //public class DnaProcessedEventHandlerTest
+    //{
+    //    private readonly DnaProcessedEventHandler _sut;
+    //    private readonly Mock<IStatsRepository> _repository = new Mock<IStatsRepository>();
 
-        public DnaProcessedEventHandlerTest()
-        {
-            _sut = new DnaProcessedEventHandler(_repository.Object);
-        }
+    //    public DnaProcessedEventHandlerTest()
+    //    {
+    //        _sut = new DnaProcessedEventHandler(_repository.Object);
+    //    }
 
-        [Fact]
-        public async void Stats()
-        {
-            bool isMutant = false;
-            DnaProcessedEvent notification = new DnaProcessedEvent(isMutant);
-            _repository.Setup(x => x.AddStatAsync(isMutant))
-                .Verifiable();
+    //    [Fact]
+    //    public async void Stats()
+    //    {
+    //        bool isMutant = false;
+    //        DnaProcessedEvent notification = new DnaProcessedEvent(isMutant);
+    //        _repository.Setup(x => x.AddStatAsync(isMutant))
+    //            .Verifiable();
 
-            await _sut.Handle(notification, new System.Threading.CancellationToken());
+    //        await _sut.Handle(notification, new System.Threading.CancellationToken());
 
-            _repository.VerifyAll();
-        }
+    //        _repository.VerifyAll();
+    //    }
 
-        private GetStatsQuery GetQuery()
-        {
-            return new GetStatsQuery();
-        }
-    }
+    //}
 }
